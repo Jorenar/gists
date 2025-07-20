@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>Undertext on hover</title>
+
+<style>
+  #undertext .items li {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 1.5em;
+    width: 7em;
+  }
+
+  #undertext .items li > span {
+    display: flex;
+    font-size: 0.7em;
+    justify-content: center;
+    transform: translateY(150%);
+    transition: all 0.3s ease;
+  }
+
+  #undertext .items li:hover > span {
+    transform: translateY(10%);
+  }
+</style>
+
+<div id="undertext">
+  <ul class="items">
+    <li> uppertext2  <span>undertext1</span>   </li>
+    <li> uppertext2  <span>undertext1</span>   </li>
+  </ul>
+</div>
