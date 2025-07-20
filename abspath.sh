@@ -1,0 +1,13 @@
+abspath () (
+    if [ -d "$1" ]; then
+        cd "$1" && pwd
+    elif [ -f "$1" ]; then
+        case "$1" in
+            /*)  echo "$1" ;;
+            */*) echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")" ;;
+            *)   echo "$PWD/$1" ;;
+        esac
+    else
+        >&2 echo "abspath: $1: no such file or directory"
+    fi
+)
