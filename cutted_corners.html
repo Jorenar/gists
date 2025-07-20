@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title>Cutted corners</title>
+
+<style>
+  #cutted {
+    --bg: #999;
+    background: var(--bg);
+  }
+
+  #cutted #box {
+    background: #222;
+    width: 300px;
+    height: 75px;
+    position: relative;
+    color: white;
+    text-align: center;
+  }
+
+  #cutted #box:before,
+  #cutted #box:after {
+    --size: 20px;
+    --offset: calc(-1 * var(--size)/2);
+    content: "";
+    position: absolute;
+    bottom: var(--offset);
+    width: var(--size);
+    height: var(--size);
+    background: var(--bg);
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+
+  #cutted #box:before {
+    right: var(--offset);
+  }
+
+  #cutted #box:after {
+    left: var(--offset);
+  }
+</style>
+
+<center id="cutted" style='width: 350px; height: 100px'>
+  <div id="box"> </div>
+</center>
