@@ -1,0 +1,25 @@
+{html}
+<!--
+  Paste into:
+    Space Tools > Look and Feel > Sidebar, header and footer > Sidebar
+-->
+<script>
+  const pagesToExpand = [
+    "Work in progress",
+  ];
+</script>
+<script>
+  const hrefs = pagesToExpand
+    .map((p) => p.replace(/ /g, "+"))
+    .map((p) => `[href*="${p}"]`)
+    .join(", ");
+  let query = [
+    `li:has(> .plugin_pagetree_children_content a:is(${hrefs}))`,
+    `> .plugin_pagetree_childtoggle_container`,
+    `> a[aria-expanded="false"]`,
+  ].join(" ");
+  window.setTimeout(function() {
+    document.querySelectorAll(query).forEach((t) => t.click());
+  }, 750);
+</script>
+{html}
